@@ -38,7 +38,7 @@ def ssh2(hostname,CMD_List,Port=22,Username='admin',Password='admin_default'):
 if __name__ == "__main__":
     Username = input('Please enter your username  >> ')
     Password = getpass.getpass('Your Password  >> ')
-    IP_Address = ['59.48.111.185']
+    IP_Address = ['x.x.x.x']
     Command_List = ['show version \n','show device \n','show slot information \n','show ip route \n','show interface status \n','show vlan \n','show ip interface brief \n','show run \n']
     for IP in IP_Address:
         check.is_IP(IP)
