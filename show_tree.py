@@ -71,7 +71,38 @@ def show_tree(tree_array):
 show_tree(origin)
 
 
+def display_tree(tree_array):
+    '''
+    算法实现如下：
 
+    先找到第一行的宽度，第一个元素居中对齐
+    然后第二行是两个元素第一个元素先找到width//2居中+' ',第三个元素同样找到width//2居中
+    这样:
+        第一行相当与15宽度居中
+        第二行相当于打印两个7宽度并把相应的元素居中
+        第三行相当于四个3宽度并且把相应的元素居中
+    '''
+    import math
+    length = len(tree_array)
+    layer = math.ceil(math.log2(length+1))
+
+    str_width = len(str(max(tree_array)))
+    index = 0
+    width = (2 ** layer - 1) * str_width    # 15*字符宽度
+    for i in range(layer):          #循环 0，1，2，3    
+        for j in range(2**i):       # 0:0,1:0 1,2:0 1 2 3,3:0^7
+            print('{:^{}}'.format(tree_array[index],width),end=' '*str_width)
+            index += 1
+            if index >= length:
+                break
+        width  = width // 2
+        print()
+
+
+
+l1 = [1,2,3,4,5,6,7,8,9]
+
+display_tree(l1)
 
 
 
