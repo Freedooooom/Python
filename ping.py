@@ -16,13 +16,7 @@ logging.basicConfig(
 )
 
 def ssh2():
-    command_list = [ 
-    'neigh_show arp \n',
-    'dev_cfg l3 sw8_0 route show;dmesg -c \n',
-    'dev_cfg l3 sw8_0 route show 15750 16000;dmesg -c \n',
-    'dev_cfg l3 sw8_0 route show 16000 16500;dmesg -c \n',
-    'dev_cfg l3 sw8_0 host show;dmesg -c \n',
-    'dev_cfg l3 sw8_0 arp show;dmesg -c \n',]
+    command_list = [ ]
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     try:
