@@ -30,4 +30,11 @@ for line in lines:
         pass
     else:
         pass
-    
+
+with open("/var/log/local_access_log") as f:
+    for line in f.readline():
+        wordict = extract(line)
+        if wordict:
+            print(wordict[UserAgent],wordict[remoteIP])
+        else:
+            print("Not pattern")
