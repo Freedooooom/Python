@@ -9,8 +9,10 @@ regex = re.compile(pattern)
 def extract(line):
     matcher = regex.match(line)
 #    return matcher.groupdict()
+    info = None
     if matcher:
-        return {k:ops.get(k,lambda x: x)(v) for k,v in matcher.groupdict(logline).items()}
+        info = {k:ops.get(k,lambda x: x)(v) for k,v in matcher.groupdict(logline).items()}
+    return info
 
 ops = {
     'datetime':lambda timestr: datetime.strptime(timestr,"%d/%b/%Y:%H:%M:%S %z"),
