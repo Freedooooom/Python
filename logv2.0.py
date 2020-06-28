@@ -24,13 +24,6 @@ ops = {
 
 lines = []
 
-for line in lines:
-    d = extract(line)
-    if d:
-        pass
-    else:
-        pass
-
 with open("/var/log/local_access_log") as f:
     for line in f.readline():
         wordict = extract(line)
