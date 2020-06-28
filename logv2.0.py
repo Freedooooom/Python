@@ -25,7 +25,7 @@ ops = {
 # 这里这个lambda x: x是因为get方式去获取一个key的时候不存在给的默认值无论如何都是一个str对象是没有()调用的,所以给了一个lambda,当给函数的时候返回一个函数去调用v,当给一个字符的时候就返回一个字符串
 
 with open("/var/log/local_access_log") as f:
-    for line in f.readline():
+    for line in f:
         wordict = extract(line)
         if wordict:
             print(wordict[UserAgent],wordict[remoteIP])
