@@ -5,4 +5,3 @@ Checkl.py       日常判断一些字符串的自定义脚本，
 show_tree.py    将一个列表序列打印为一个完全二叉树形式      
 logv1.0 logv2.0 日志分析雏形  
 Rename          批量按照规则命名jpg文件。
-test
