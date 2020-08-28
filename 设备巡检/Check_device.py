@@ -2,7 +2,6 @@ import paramiko
 import time
 import getpass
 
-
 def ssh2(comm_list:list,hostname='192.168.0.1',User='admin',Passwd='admin_default',Port='22'):
     SSH = paramiko.SSHClient()
     SSH.set_missing_host_key_policy(paramiko.AutoAddPolicy())
