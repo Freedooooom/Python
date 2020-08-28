@@ -9,7 +9,7 @@ def ssh2(comm_list:list,hostname='192.168.0.1',User='admin',Passwd='admin_defaul
     SSH.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     SSH.connect(hostname,username=User,password=Passwd,port=Port)
     remote = SSH.invoke_shell()
-    logfile = open('log_{}.txt'.format(hostname),mode='w+',encoding='utf-8')
+    logfile = open('log_{}.txt'.format(hostname),mode='w',encoding='utf-8')
     remote.send('terminal line 0 \n')
     for comm in comm_list:
         remote.send(comm)
@@ -20,7 +20,7 @@ def ssh2(comm_list:list,hostname='192.168.0.1',User='admin',Passwd='admin_defaul
             if result.decode('utf-8').endswith('>'):
                 break
         time.sleep(1)
-        print('\033[1;3m command {} executed successfully \033[0m'.format(comm))
+        print('\033[1;3m 设备{}执行命令{}成功 \033[0m'.format(hostname,comm))
     else:
         SSH.close()
         logfile.close()
@@ -33,11 +33,14 @@ if __name__ == '__main__':
         'show run \n'
     ]
     
-    with open('TMP\IP.txt') as IP_list:
+    with open('IP.txt') as IP_list:
         for ip in IP_list:
             try:
                 conn_parser = ip.split()
                 ssh2(comm_list,hostname=conn_parser[0],User=conn_parser[1],Passwd=conn_parser[2])
             except TimeoutError as err:
-                print('connect {} falied'.format(conn_parser[0]))
+                print('连接{}失败'.format(conn_parser[0]))
+                with open('conntce_falied.txt','a') as f:
+                    f.write(conn_parser[0])
+                    f.write('\r\n')
                 continue
