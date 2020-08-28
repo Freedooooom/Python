@@ -1,7 +1,6 @@
 import paramiko
 import time
 import getpass
-import socket
 
 
 def ssh2(comm_list:list,hostname='192.168.0.1',User='admin',Passwd='admin_default',Port='22'):
@@ -40,7 +39,7 @@ if __name__ == '__main__':
             try:
                 conn_parser = ip.split()
                 ssh2(comm_list,hostname=conn_parser[0],User=conn_parser[1],Passwd=conn_parser[2])
-            except TimeoutError as err:
+            except:
                 print('连接{}失败'.format(conn_parser[0]))
                 with open('conntce_falied.txt','a') as f:
                     f.write(conn_parser[0])
