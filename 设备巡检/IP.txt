@@ -1,0 +1,3 @@
+# 每一行一个IP，使用空白分割用户名和密码。如下
+192.168.0.1 admin   admin_default
+192.168.0.2 huawei  huawei@123

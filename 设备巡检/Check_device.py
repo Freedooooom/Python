@@ -35,6 +35,8 @@ if __name__ == '__main__':
     
     with open('IP.txt') as IP_list:
         for ip in IP_list:
+            if ip.startswith('#'):
+                continue
             try:
                 conn_parser = ip.split()
                 ssh2(comm_list,hostname=conn_parser[0],User=conn_parser[1],Passwd=conn_parser[2])
