@@ -5,6 +5,12 @@ import logging
 import paramiko
 import getpass
 
+'''
+某云计算设备不规律中断，添加Ping测试排错
+'''
+
+
+
 passwd = getpass('Enter your password >> ')
 
 switch = 0
