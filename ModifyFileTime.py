@@ -13,10 +13,6 @@ def ModifyFile(dirstr:str):
             os.utime(f,(TimeStamp,TimeStamp))
             ModifyFile(dirname/f)
             
-
-
-
-
 if __name__ == "__main__":
     ModifyFileDir = input("Your want modify file path >> ")
     
